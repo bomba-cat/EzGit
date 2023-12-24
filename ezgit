@@ -11,6 +11,8 @@ options () {
 	echo Pull        [2]
 	echo Commit      [3]
 	echo Push        [4]
+	echo Init        [5]
+	echo Store Token [6]
 
 	echo
 	echo ---CTRL+C-TO-EXIT---
@@ -31,6 +33,18 @@ pwd_av () {
 	ls -a
 	echo -------------------
 	echo
+}
+
+user="empty"
+
+fetch_token () {
+	user=$(head -n 1 /bin/ezgittoken) | sed 's/echo//' || echo ezgittoken not found
+	token$(tail -n 1 /bin/ezgittoken) | sed 's/echo//' || echo ezgittoken not found
+}
+
+token_push () {
+	origin=$(git config --get remote.origin.url) | sed 's/https:////'
+	git push -u "https://${user}:${token}@${origin}" main
 }
 
 start
@@ -59,7 +73,14 @@ push_commit () {
 	git commit -am "$msg"
 
 	clear
-	git push
+
+	if [ $user != "empty" ]
+	then
+		token_push
+	else
+		git push
+	fi
+
 	clear
 	echo Successfully commited and pushed
 }
@@ -106,9 +127,30 @@ push () {
 	change_dir
 
 	clear
-	git push
+
+	if [ $user != "empty" ]
+	then
+		token_push
+	else
+		git push
+	fi
+
 	clear
 	echo Successfully pushed
+}
+
+init () {
+	echo W.I.P
+}
+
+token () {
+	read -p "Please enter your username: " usr
+	read -p "Please enter your token: " token
+
+	sudo echo echo $usr >| /bin/ezgittoken || echo To add the token please run script as sudo
+	sudo echo echo $token > /bin/ezgittoken || exit
+
+	sudo chmod +x /bin/ezgittoken
 }
 
 if [ $option -eq 1 ]
@@ -133,4 +175,16 @@ if [ $option -eq 4 ]
 then
 	start
 	push
+fi
+
+if [ $option -eq 5 ]
+then
+	start
+	init
+fi
+
+if [ $option -eq 6 ]
+then
+	start
+	token
 fi
