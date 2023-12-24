@@ -1,0 +1,20 @@
+echo ░█▀▀▀ ░█▀▀▀█ 　 ░█▀▀█ ▀█▀ ▀▀█▀▀
+echo ░█▀▀▀ ─▄▄▄▀▀ 　 ░█─▄▄ ░█─ ─░█──
+echo ░█▄▄▄ ░█▄▄▄█ 　 ░█▄▄█ ▄█▄ ─░█──
+
+echo
+echo
+
+read -p "Absolute Path to the Directory: " path
+
+cd $path
+
+git add --all
+
+read -p "Commit message: " msg
+
+git commit -m $msg
+
+clear
+
+git push
