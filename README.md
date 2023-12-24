@@ -12,6 +12,9 @@ After this the ezgit script is in your system seach path and you can execute it 
 # Feautures
 - Push: Yes
 - Pull: Yes
+- Commit: Yes
+- Init: W.I.P
+- Auto fill token and user: W.I.P
 - Everything Else: No
 
 Working on bringing everything git has to a more easy to use userface for beginners.
