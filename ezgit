@@ -150,10 +150,10 @@ token () {
 
 	sudo touch /bin/ezgittoken
 
-	sudo echo echo $usr > /bin/ezgittoken || echo To add the token please run script as sudo
-	sudo echo echo $token >> /bin/ezgittoken || exit
+	echo echo $usr > /bin/ezgittoken || echo To add the token please run script as sudo
+	echo echo $token >> /bin/ezgittoken || exit
 
-	sudo chmod +x /bin/ezgittoken
+	chmod +x /bin/ezgittoken
 }
 
 if [ $option -eq 1 ]
