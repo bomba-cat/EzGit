@@ -5,9 +5,12 @@ echo ░█▄▄▄ ░█▄▄▄█ 　 ░█▄▄█ ▄█▄ ─░█�
 echo
 echo
 
-read -p "Absolute Path to the Directory: " path
+read -p "Path to the Directory: " path
 
-cd $path
+working=$(pwd)
+all="${working}/${path}"
+
+cd $path || cd $all
 
 git add --all
 
