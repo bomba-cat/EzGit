@@ -13,7 +13,7 @@ git add --all
 
 read -p "Commit message: " msg
 
-git commit -am $msg
+git commit -am "$msg"
 
 clear
 
