@@ -1,9 +1,13 @@
-echo ░█▀▀▀ ░█▀▀▀█ 　 ░█▀▀█ ▀█▀ ▀▀█▀▀
-echo ░█▀▀▀ ─▄▄▄▀▀ 　 ░█─▄▄ ░█─ ─░█──
-echo ░█▄▄▄ ░█▄▄▄█ 　 ░█▄▄█ ▄█▄ ─░█──
+logo () {
+	echo ░█▀▀▀ ░█▀▀▀█ 　 ░█▀▀█ ▀█▀ ▀▀█▀▀
+	echo ░█▀▀▀ ─▄▄▄▀▀ 　 ░█─▄▄ ░█─ ─░█──
+	echo ░█▄▄▄ ░█▄▄▄█ 　 ░█▄▄█ ▄█▄ ─░█──
+	echo
+	echo
+}
+clear
 
-echo
-echo
+logo
 
 read -p "Path to the Directory: " path
 
@@ -11,11 +15,12 @@ working=$(pwd)
 all="${working}/${path}"
 
 cd $path || cd $all
-
 git add --all
 
-read -p "Commit message: " msg
+clear
+logo
 
+read -p "Commit message: " msg
 git commit -am "$msg"
 
 clear
