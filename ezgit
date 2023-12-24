@@ -35,21 +35,21 @@ pwd_av () {
 	echo
 }
 
-user="empty"
-
 fetch_token () {
-	user=$(head -n 1 /bin/ezgittoken) | sed 's/echo//' || echo ezgittoken not found
-	token$(tail -n 1 /bin/ezgittoken) | sed 's/echo//' || echo ezgittoken not found
+	user=$(head -n 1 /bin/ezgittoken | sed 's/echo //') || echo ezgittoken not found
+	token$(tail -n 1 /bin/ezgittoken | sed 's/echo //') || echo ezgittoken not found
 }
 
 token_push () {
-	origin=$(git config --get remote.origin.url) | sed 's/https:////'
+	origin=$(git remote get-url origin | sed 's/........//')
 	git push -u "https://${user}:${token}@${origin}" main
 }
 
 fetch_token
 start
 options
+echo $user
+echo $token
 read -p "Choose your option: " option
 
 change_dir () {
@@ -75,7 +75,7 @@ push_commit () {
 
 	clear
 
-	if [ $user != "empty" ]
+	if [ $user != "" ]
 	then
 		token_push
 	else
@@ -129,7 +129,7 @@ push () {
 
 	clear
 
-	if [ $user != "empty" ]
+	if [ $user != "" ]
 	then
 		token_push
 	else
