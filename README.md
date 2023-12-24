@@ -5,6 +5,7 @@ Make git easier on Linux !
 - ```Install git```
 - ```git clone https://github.com/xk-rl/EzGit```
 - ```cd EzGit```
+- ```chmod 755 ezgit```
 - ```sudo cp ezgit /bin (system search path)```
 
 After this the ezgit script is in your system seach path and you can execute it inside your terminal using: ezgit
@@ -14,7 +15,7 @@ After this the ezgit script is in your system seach path and you can execute it 
 - Pull: Yes
 - Commit: Yes
 - Init: W.I.P
-- Auto fill token and user: W.I.P
+- Auto fill token and user: Yes
 - Everything Else: No
 
 Working on bringing everything git has to a more easy to use userface for beginners.
