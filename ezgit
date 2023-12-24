@@ -47,6 +47,7 @@ token_push () {
 	git push -u "https://${user}:${token}@${origin}" main
 }
 
+fetch_token
 start
 options
 read -p "Choose your option: " option
