@@ -6,9 +6,13 @@ logo () {
 	echo
 }
 clear
-
 logo
 
+echo --------pwd--------
+echo $(pwd)
+echo -----available-----
+ls -a
+echo -------------------
 read -p "Path to the Directory: " path
 
 working=$(pwd)
@@ -24,5 +28,5 @@ read -p "Commit message: " msg
 git commit -am "$msg"
 
 clear
-
 git push
+clear
