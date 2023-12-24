@@ -10,9 +10,12 @@ logo
 
 echo --------pwd--------
 echo $(pwd)
+echo -------------------
+echo
 echo -----available-----
 ls -a
 echo -------------------
+echo
 read -p "Path to the Directory: " path
 
 working=$(pwd)
@@ -30,3 +33,4 @@ git commit -am "$msg"
 clear
 git push
 clear
+echo Successfully pushed
