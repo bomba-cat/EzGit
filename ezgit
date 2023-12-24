@@ -68,7 +68,10 @@ pull () {
 
 	change_dir
 
+	clear
 	git pull
+	clear
+	echo Successfully pulled
 }
 
 if [ $option -eq 1 ]
