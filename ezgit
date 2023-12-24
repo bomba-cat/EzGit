@@ -8,7 +8,7 @@ logo () {
 
 options () {
 	echo Push [1]
-	
+	echo Pull [2]
 
 	echo
 	echo -------------------
@@ -35,14 +35,19 @@ start
 options
 read -p "Choose your option: " option
 
-push () {
-	pwd_av
-	read -p "Path to the Directory: " path
-
+change_dir () {
 	working=$(pwd)
 	all="${working}/${path}"
 
 	cd $path || cd $all
+}
+
+push () {
+	pwd_av
+	read -p "Path to the Directory: " path
+
+	change_dir
+
 	git add --all
 
 	clear
@@ -57,8 +62,23 @@ push () {
 	echo Successfully pushed
 }
 
+pull () {
+	pwd_av
+	read -p "Path to the Directory: " path
+
+	change_dir
+
+	git pull
+}
+
 if [ $option -eq 1 ]
 then
 	start
 	push
+fi
+
+if [ $option -eq 2 ]
+then
+	start
+	pull
 fi
