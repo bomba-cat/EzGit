@@ -20,11 +20,7 @@ start () {
 	logo
 }
 
-start
-options
-read -p "Choose your option: " option
-
-push () {
+pwd_av () {
 	echo --------pwd--------
 	echo $(pwd)
 	echo -------------------
@@ -33,6 +29,14 @@ push () {
 	ls -a
 	echo -------------------
 	echo
+}
+
+start
+options
+read -p "Choose your option: " option
+
+push () {
+	pwd_av
 	read -p "Path to the Directory: " path
 
 	working=$(pwd)
