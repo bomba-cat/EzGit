@@ -80,8 +80,8 @@ push_commit () {
 	if [ $user != "" ]
 	then
 		token_push
-	# else
-	#	git push -u origin main
+	else
+		git push -u origin main
 	fi
 
 	echo Successfully commited and pushed
