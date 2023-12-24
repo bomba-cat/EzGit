@@ -16,6 +16,8 @@ After this the ezgit script is in your system seach path and you can execute it 
 - Commit: Yes
 - Init: W.I.P
 - Auto fill token and user: Yes
-- Everything Else: No
+- Basic Features: Planned
+- Some QOL Features: Planned
+- Other stuff: Probably no, maybe if the idea is good
 
 Working on bringing everything git has to a more easy to use userface for beginners.
