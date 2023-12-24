@@ -7,12 +7,13 @@ logo () {
 }
 
 options () {
-	echo Push [1]
-	echo Pull [2]
-	echo Commit [3]
+	echo Push_Commit [1]
+	echo Pull        [2]
+	echo Commit      [3]
+	echo Push        [4]
 
 	echo
-	echo -------------------
+	echo ---CTRL+C-TO-EXIT---
 	echo
 }
 
@@ -43,7 +44,7 @@ change_dir () {
 	cd $path || cd $all
 }
 
-push () {
+push_commit () {
 	pwd_av
 	read -p "Path to the Directory: " path
 
@@ -60,7 +61,7 @@ push () {
 	clear
 	git push
 	clear
-	echo Successfully pushed
+	echo Successfully commited and pushed
 }
 
 pull () {
@@ -98,10 +99,22 @@ commit () {
 	echo Successfully commited
 }
 
+push () {
+	pwd_av
+	read -p "Path to the Directory: " path
+
+	change_dir
+
+	clear
+	git push
+	clear
+	echo Successfully pushed
+}
+
 if [ $option -eq 1 ]
 then
 	start
-	push
+	push_commit
 fi
 
 if [ $option -eq 2 ]
@@ -114,4 +127,10 @@ if [ $option -eq 3 ]
 then
 	start
 	commit
+fi
+
+if [ $option -eq 4 ]
+then
+	start
+	push
 fi
