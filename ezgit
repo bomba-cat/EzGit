@@ -75,6 +75,25 @@ pull () {
 	echo Successfully pulled
 }
 
+commit () {
+	pwd_av
+	read -p "Path to the Directory: " path
+
+	change_dir
+
+	clear
+	logo
+
+	echo Example: README.md ezgit directory_example/ file_example.txt
+	read -p "List all the Files you want to commit: " files
+	read -p "Entere the Message you want to give: " msg
+	
+	clear
+	git commit $files -m $msg
+	# clear
+	echo Successfully commited
+}
+
 if [ $option -eq 1 ]
 then
 	start
