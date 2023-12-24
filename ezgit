@@ -9,6 +9,7 @@ logo () {
 options () {
 	echo Push [1]
 	echo Pull [2]
+	echo Commit [3]
 
 	echo
 	echo -------------------
@@ -84,4 +85,10 @@ if [ $option -eq 2 ]
 then
 	start
 	pull
+fi
+
+if [ $option -eq 3 ]
+then
+	start
+	commit
 fi
