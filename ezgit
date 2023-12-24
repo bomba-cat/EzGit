@@ -84,6 +84,10 @@ commit () {
 	clear
 	logo
 
+	ls
+	echo
+	echo
+
 	echo Example: README.md ezgit directory_example/ file_example.txt
 	read -p "List all the Files you want to commit: " files
 	read -p "Entere the Message you want to give: " msg
