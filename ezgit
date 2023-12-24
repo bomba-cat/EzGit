@@ -5,32 +5,56 @@ logo () {
 	echo
 	echo
 }
-clear
-logo
 
-echo --------pwd--------
-echo $(pwd)
-echo -------------------
-echo
-echo -----available-----
-ls -a
-echo -------------------
-echo
-read -p "Path to the Directory: " path
+options () {
+	echo Push [1]
+	
 
-working=$(pwd)
-all="${working}/${path}"
+	echo
+	echo -------------------
+	echo
+}
 
-cd $path || cd $all
-git add --all
+start () {
+	clear
+	logo
+}
 
-clear
-logo
+start
+options
+read -p "Choose your option: " option
 
-read -p "Commit message: " msg
-git commit -am "$msg"
+push () {
+	echo --------pwd--------
+	echo $(pwd)
+	echo -------------------
+	echo
+	echo -----available-----
+	ls -a
+	echo -------------------
+	echo
+	read -p "Path to the Directory: " path
 
-clear
-git push
-clear
-echo Successfully pushed
+	working=$(pwd)
+	all="${working}/${path}"
+
+	cd $path || cd $all
+	git add --all
+
+	clear
+	logo
+
+	read -p "Commit message: " msg
+	git commit -am "$msg"
+
+	clear
+	git push
+	clear
+	echo Successfully pushed
+}
+
+if [ $option -eq 1 ]
+then
+	start
+	push
+fi
