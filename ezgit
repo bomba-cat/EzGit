@@ -86,8 +86,6 @@ push_commit () {
 	else
 		git push
 	fi
-
-	echo Successfully commited and pushed
 }
 
 pull () {
@@ -98,7 +96,6 @@ pull () {
 
 	clear
 	git pull
-	echo Successfully pulled
 }
 
 commit () {
@@ -120,8 +117,6 @@ commit () {
 	
 	clear
 	git commit $files -m $msg
-
-	echo Successfully commited
 }
 
 push () {
@@ -139,7 +134,6 @@ push () {
 		git push
 	fi
 
-	echo Successfully pushed
 }
 
 init () {
@@ -154,7 +148,6 @@ init () {
 	git init
 	git branch -m $branch
 
-	echo Successfully initialized a git
 }
 
 stash () {
