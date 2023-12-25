@@ -1,21 +1,22 @@
 logo () {
-	echo ░█▀▀▀ ░█▀▀▀█ 　 ░█▀▀█ ▀█▀ ▀▀█▀▀
-	echo ░█▀▀▀ ─▄▄▄▀▀ 　 ░█─▄▄ ░█─ ─░█──
-	echo ░█▄▄▄ ░█▄▄▄█ 　 ░█▄▄█ ▄█▄ ─░█──
+	echo ░█▀▀▀ ░█▀▀▀█　 ░█▀▀█ ▀█▀ ▀▀█▀▀
+	echo ░█▀▀▀ ─▄▄▄▀▀　 ░█─▄▄ ░█─ ─░█──
+	echo ░█▄▄▄ ░█▄▄▄█　 ░█▄▄█ ▄█▄ ─░█──
 	echo
 	echo
 }
 
 options () {
-	echo Push_Commit [1]
-	echo Pull        [2]
-	echo Commit      [3]
-	echo Push        [4]
-	echo Init        [5]
-	echo Store Token [6]
+	echo Push-Commit----------------[1]
+	echo Pull-----------------------[2]
+	echo Commit---------------------[3]
+	echo Push-----------------------[4]
+	echo Init-----------------------[5]
+	
+	echo Store-Token----------------[0]
 
 	echo
-	echo ---CTRL+C-TO-EXIT---
+	echo --------CTRL+C-TO-EXIT--------
 	echo
 }
 
@@ -25,13 +26,13 @@ start () {
 }
 
 pwd_av () {
-	echo --------pwd--------
+	echo -------------pwd-------------
 	echo $(pwd)
-	echo -------------------
+	echo -----------------------------
 	echo
-	echo -----available-----
+	echo -----available---------------
 	ls -a
-	echo -------------------
+	echo -----------------------------
 	echo
 }
 
@@ -50,15 +51,16 @@ token_push () {
 fetch_token
 start
 options
-echo $user
-echo $token
 read -p "Choose your option: " option
 
 change_dir () {
 	working=$(pwd)
 	all="${working}/${path}"
-
-	cd $path || cd $all
+	
+	if [ $path != "" ]
+	then
+		cd $path || cd $all
+	fi
 }
 
 push_commit () {
@@ -140,7 +142,18 @@ push () {
 }
 
 init () {
-	echo W.I.P
+	pwd_av
+	read -p "Path to the Directory: " path
+	read -p "Initial branch name: " branch
+
+	change_dir
+
+	clear
+
+	git init
+	git branch -m $branch
+
+	echo Successfully initialized a git
 }
 
 token () {
@@ -185,7 +198,7 @@ then
 	init
 fi
 
-if [ $option -eq 6 ]
+if [ $option -eq 0 ]
 then
 	start
 	token
