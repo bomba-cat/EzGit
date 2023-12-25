@@ -116,7 +116,7 @@ commit () {
 	read -p "Entere the Message you want to give: " msg
 	
 	clear
-	git commit $files -m $msg
+	git commit $files -m "$msg"
 }
 
 push () {
