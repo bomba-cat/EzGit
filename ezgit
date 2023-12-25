@@ -171,7 +171,14 @@ stash () {
 		echo skipping
 	fi
 	
-	git stash
+	if [ $ans -eq "y" ]
+	then
+		git stash
+	fi
+	if [ $ans -eq "Y" ]
+	then
+		git stash
+	fi
 }
 
 token () {
