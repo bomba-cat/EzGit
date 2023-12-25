@@ -39,7 +39,7 @@ user=""
 
 fetch_token () {
 	user=$(head -n 1 /bin/ezgittoken | sed 's/echo //') || echo ezgittoken not found
-	token$(tail -n 1 /bin/ezgittoken | sed 's/echo //') || echo ezgittoken not found
+	token=$(tail -n 1 /bin/ezgittoken | sed 's/echo //') || echo ezgittoken not found
 }
 
 token_push () {
