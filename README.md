@@ -6,7 +6,7 @@ Make git easier on Linux !
 - ```git clone https://github.com/xk-rl/EzGit```
 - ```cd EzGit```
 - ```chmod +x ezgit```
-- ```sudo cp ezgit /bin (system search path)```
+- ```sudo cp ezgit /bin``` (system search path)
 
 After this the ezgit script is in your system seach path and you can execute it inside your terminal using: ezgit
 
