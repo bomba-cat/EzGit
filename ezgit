@@ -40,6 +40,7 @@ pwd_av () {
 }
 
 user=""
+originaldir=$(pwd)
 
 fetch_token () {
 	user=$(head -n 1 /bin/ezgittoken | sed 's/echo //') || echo ezgittoken not found
@@ -250,6 +251,8 @@ do
 	fi
 
 	clear
+
+	cd $originaldir
 
 	start
 	options
