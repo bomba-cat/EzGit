@@ -187,6 +187,10 @@ token () {
 
 a=1
 
+pwait () {
+	read -p "press any key to continue " tmp
+}
+
 while [ $a -eq 1 ]
 do
 
@@ -194,42 +198,49 @@ do
 	then
 		start
 		push_commit
+		pwait
 	fi
 	
 	if [ $option -eq 2 ]
 	then
 		start
 		pull
+		pwait
 	fi
 	
 	if [ $option -eq 3 ]
 	then
 		start
 		commit
+		pwait
 	fi
 	
 	if [ $option -eq 4 ]
 	then
 		start
 		push
+		pwait
 	fi
 
 	if [ $option -eq 5 ]
 	then
 		start
 		init
+		pwait
 	fi
 
 	if [ $option -eq 6 ]
 	then
 		start
 		stash
+		pwait
 	fi
 	
 	if [ $option -eq 0 ]
 	then
 		start
 		token
+		pwait
 	fi
 
 	if [ $option -eq 9 ]
