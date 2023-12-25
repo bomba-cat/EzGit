@@ -14,6 +14,7 @@ options () {
 	echo Init-----------------------[5]
 	echo Stash----------------------[6]
 	
+	echo Exit-----------------------[9]
 	echo Store-Token----------------[0]
 
 	echo
@@ -228,6 +229,13 @@ do
 	then
 		start
 		token
+	fi
+
+	if [ $option -eq 9 ]
+	then
+		clear
+		echo Exiting script...
+		exit
 	fi
 
 	clear
