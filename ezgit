@@ -81,7 +81,7 @@ push_commit () {
 	then
 		token_push
 	else
-		git push -u origin main
+		git push
 	fi
 
 	echo Successfully commited and pushed
@@ -133,7 +133,7 @@ push () {
 	then
 		token_push
 	else
-		git push -u origin main
+		git push
 	fi
 
 	echo Successfully pushed
