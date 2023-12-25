@@ -12,6 +12,7 @@ options () {
 	echo Commit---------------------[3]
 	echo Push-----------------------[4]
 	echo Init-----------------------[5]
+	echo Stash----------------------[6]
 	
 	echo Store-Token----------------[0]
 
@@ -156,6 +157,27 @@ init () {
 	echo Successfully initialized a git
 }
 
+stash () {
+	pwd_av
+	read -p "Path to the Directory: " path
+	read -p "This will delete any unsaved changes, are you sure? (y/n): " ans
+	
+	change_dir
+
+	clear
+
+	if [ $ans -eq "n" ]
+	then
+		exit
+	fi
+	if [ $ans -eq "N" ]
+	then
+		exit
+	fi
+	
+	git stash
+}
+
 token () {
 	read -p "Please enter your username: " usr
 	read -p "Please enter your token: " token
@@ -196,6 +218,12 @@ if [ $option -eq 5 ]
 then
 	start
 	init
+fi
+
+if [ $option -eq 6 ]
+then
+	start
+	stash
 fi
 
 if [ $option -eq 0 ]
