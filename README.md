@@ -14,7 +14,8 @@ After this the ezgit script is in your system seach path and you can execute it 
 - Push: Yes
 - Pull: Yes
 - Commit: Yes
-- Init: W.I.P
+- Init: Yes
+- Stash: Yes
 - Auto fill token and user: Yes
 - Basic Features: Planned
 - Some QOL Features: Planned
