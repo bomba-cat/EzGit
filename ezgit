@@ -234,5 +234,5 @@ do
 
 	start
 	options
-	read -p "Choose your option:" option
+	read -p "Choose your option: " option
 done
