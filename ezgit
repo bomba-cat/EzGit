@@ -161,11 +161,11 @@ stash () {
 
 	if [ $ans -eq "n" ]
 	then
-		exit
+		echo skipping
 	fi
 	if [ $ans -eq "N" ]
 	then
-		exit
+		echo skipping
 	fi
 	
 	git stash
@@ -183,44 +183,56 @@ token () {
 	sudo chmod +x /bin/ezgittoken
 }
 
-if [ $option -eq 1 ]
-then
-	start
-	push_commit
-fi
+a=1
 
-if [ $option -eq 2 ]
-then
-	start
-	pull
-fi
+while [ $a -eq 1 ]
+do
 
-if [ $option -eq 3 ]
-then
-	start
-	commit
-fi
+	if [ $option -eq 1 ]
+	then
+		start
+		push_commit
+	fi
+	
+	if [ $option -eq 2 ]
+	then
+		start
+		pull
+	fi
+	
+	if [ $option -eq 3 ]
+	then
+		start
+		commit
+	fi
+	
+	if [ $option -eq 4 ]
+	then
+		start
+		push
+	fi
 
-if [ $option -eq 4 ]
-then
-	start
-	push
-fi
+	if [ $option -eq 5 ]
+	then
+		start
+		init
+	fi
 
-if [ $option -eq 5 ]
-then
-	start
-	init
-fi
+	if [ $option -eq 6 ]
+	then
+		start
+		stash
+	fi
+	
+	if [ $option -eq 0 ]
+	then
+		start
+		token
+	fi
 
-if [ $option -eq 6 ]
-then
-	start
-	stash
-fi
+	clear
 
-if [ $option -eq 0 ]
-then
 	start
-	token
-fi
+	options
+	read -p "Choose your option:" option
+done
