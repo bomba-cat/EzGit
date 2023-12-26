@@ -14,6 +14,7 @@ options () {
 	echo Push-----------------------[4]
 	echo Init-----------------------[5]
 	echo Stash----------------------[6]
+	echo Clone----------------------[7]
 	
 	echo Exit-----------------------[9]
 	echo Store-Token----------------[0]
@@ -181,6 +182,19 @@ stash () {
 	fi
 }
 
+clone () {
+	pwd_av
+	read -p "Path to the Directory (will create new directory in there): " path
+	read -p "Git mirror: " mirror
+	read -p "Depth (commit history, if unsure use 1): " depth
+
+	change_dir
+
+	clear
+
+	git clone --depth $depth $mirror
+}
+
 token () {
 	read -p "Please enter your username: " usr
 	read -p "Please enter your token: " token
@@ -244,7 +258,14 @@ do
 		stash
 		pwait
 	fi
-	
+
+	if [ $option -eq 7 ]
+	then
+		start
+		clone
+		pwait
+	fi
+
 	if [ $option -eq 0 ]
 	then
 		start
