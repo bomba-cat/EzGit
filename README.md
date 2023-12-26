@@ -11,11 +11,14 @@ Make git easier on Linux !
 After this the ezgit script is in your system seach path and you can execute it inside your terminal using: ezgit
 
 # Feautures
+- Commit_Push: Yes (Commits everything and directly pushes it)
 - Push: Yes
 - Pull: Yes
 - Commit: Yes
 - Init: Yes
 - Stash: Yes
+- Clone: Yes
+
 - Auto fill token and user: Yes
 - Basic Features: Planned
 - Some QOL Features: Planned
