@@ -185,14 +185,19 @@ stash () {
 clone () {
 	pwd_av
 	read -p "Path to the Directory (will create new directory in there): " path
-	read -p "Git mirror: " mirror
+	read -p "Git mirror: https://" mirror
 	read -p "Depth (commit history, if unsure use 1): " depth
 
 	change_dir
 
 	clear
 
-	git clone --depth $depth $mirror
+	if [ $user != "" ]
+	then
+		git clone --depth $depth "https://$user:$token@$mirror"
+	else
+		git clone --depth $depth $mirror
+	fi
 }
 
 token () {
