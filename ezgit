@@ -15,6 +15,7 @@ options () {
 	echo Init------------------------[5]
 	echo Stash-----------------------[6]
 	echo Clone-----------------------[7]
+    echo Add-------------------------[8]
 	
 	echo Exit------------------------[9]
 	echo Store-Token-----------------[0]
@@ -50,7 +51,7 @@ fetch_token () {
 
 token_push () {
 	origin=$(git remote get-url origin | sed 's/........//')
-	git push -u "https://${user}:${token}@${origin}" main
+	git push -u "https://$user:$token@$origin" main
 }
 
 fetch_token
@@ -200,6 +201,18 @@ clone () {
 	fi
 }
 
+add () {
+    pwd_av
+    read -p "Path to the Directory: " path
+
+    change_dir
+
+    read -p "Choose what files you want to add: " files
+
+    git add "$files$
+    
+}
+
 token () {
 	read -p "Please enter your username: " usr
 	read -p "Please enter your token: " token
@@ -270,6 +283,13 @@ do
 		clone
 		pwait
 	fi
+
+    if [ $option -eq 8 ]
+    then
+        start
+        add
+        pwait
+    fi
 
 	if [ $option -eq 0 ]
 	then
