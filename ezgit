@@ -209,7 +209,7 @@ add () {
 
     read -p "Choose what files you want to add: " files
 
-    git add "$files$
+    git add "$files"
     
 }
 
@@ -284,12 +284,12 @@ do
 		pwait
 	fi
 
-    if [ $option -eq 8 ]
-    then
-        start
-        add
-        pwait
-    fi
+  if [ $option -eq 8 ]
+  then
+    	start
+      add
+      pwait
+  fi
 
 	if [ $option -eq 0 ]
 	then
@@ -310,5 +310,6 @@ do
 
 	start
 	options
-	read -p "Choose your option: " option
+	read -p "Choose your option >" option
+
 done
